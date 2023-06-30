@@ -1,58 +1,65 @@
-# This file controls the settings for your Quarto template from www.marvinschmitt.com
+# This file controls the settings for your Quarto template
 
 # website settings
 website:
-  title: "Gandalf"                                # Your name
-  description: "Gandalf is a renowned wizard and scholar of Middle-earth"   # A brief slogan (optional)
-  image: img/my_image.jpg
-  
+  title: "Alexandro Disla" # Your name
+  description: "Statistics | Data Analyst | Backend Engineering" # A brief slogan (optional)
+  image: img/ad0791_profile.jpeg
   favicon: img/favicon.png
-  
+
   # start of the navigation bar at the top of the website
   navbar:
     pinned: true
     logo: /img/logo.png
-    
     # your sub-pages
-    left:
+    #left:
+    #  - text: "Projects"
+    #    href: projects/index.qmd
+    #  - text: "Photography"
+    #    href: photography/index.qmd
+    #  - text: "CV"
+    #    href: cv/index.qmd
+    right:
+      #- icon: folder-symlink
+      #  href: https://www.marvinschmitt.com/blog/website-tutorial-quarto/
       - text: "Projects"
         href: projects/index.qmd
       - text: "Photography"
         href: photography/index.qmd
       - text: "CV"
         href: cv/index.qmd
-    
-    # your social media handles
-    right:
-      - icon: folder-symlink
-        href: https://www.marvinschmitt.com/blog/website-tutorial-quarto/
-      - icon: twitter
-        href: https://twitter.com/MarvinSchmittML
-      - icon: linkedin
-        href: https://www.linkedin.com/in/marvin-schmitt-a85b321a2/
       - icon: envelope
         aria-label: email
-        href: "mailto:mail.marvinschmitt@gmail.com"  
-  
-  
+        href: "mailto:alexandrodisla@hotmail.com"
+      - icon: linkedin
+        aria-label: Linkedin
+        href: https://www.linkedin.com/in/alexandro-disla-98160994/
+      - icon: github
+        aria-label: Github
+        href: https://github.com/AD0791
+      - icon: person-vcard
+        aria-label: Upwork
+        href: https://www.upwork.com/freelancers/~014d169b1fa2529359?viewMode=1
 
-# Don't touch unless you know what you are doing :) ------------
-  search: 
+  # Don't touch unless you know what you are doing :) ------------
+  search:
     location: navbar
     type: textbox
-  page-footer: 
-    left: |
-      <span class="faux-block">&#169; 2023 Marvin Schmitt CC BY-SA 4.0</span>
-    center: |
-      <span class="faux-block"><a href="https://www.marvinschmitt.com/blog/website-tutorial-quarto/">View the tutorial for this template!</a></span>
+  page-footer:
     right: |
-      <span class="faux-block"><a href="https://github.com/marvinschmitt/quarto-website-template/">View source on GitHub</a></span>
+      <span class="faux-block">&#169; 2023 Alexandro Disla</span>
+    #left: |
+    #  <span class="faux-block">&#169; 2023 Alexandro Disla</span>
+    #center: |
+    #  <span class="faux-block"><a href="https://www.marvinschmitt.com/blog/website-tutorial-quarto/">View the tutorial for this template!</a></span>
+    #right: |
+    #  <span class="faux-block"><a href="https://github.com/marvinschmitt/quarto-website-template/">View source on GitHub</a></span>
 
 project:
   type: website
   output-dir: docs
 
-  preview: 
+  preview:
     port: 22222
     browser: true
     watch-inputs: true
@@ -64,8 +71,10 @@ execute:
 format:
   html:
     fontsize: 1.1em
-    theme: 
+    theme:
       - pulse
+      - flatly
+      - darkly
       - html/styles.scss
     toc: false
     code-link: true
