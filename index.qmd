@@ -13,6 +13,9 @@ about:
     - icon: envelope
       text: Email
       href: "mailto:alexandrodisla@hotmail.com"  
+    - icon: upwork
+      text: Upwork
+      href: https://www.upwork.com/freelancers/~014d169b1fa2529359?viewMode=1
 ---
 
 ::: {#about-block}
