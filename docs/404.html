@@ -83,18 +83,27 @@ ul.task-list li input[type="checkbox"] {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="/projects/index.html" rel="" target="">
- <span class="menu-text">Projects</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-my-projects" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+      <i class="bi bi-folder-symlink" role="img">
+</i> 
+ <span class="menu-text">My Projects</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-my-projects">    
+        <li>
+    <a class="dropdown-item" href="/projects/index.html" rel="" target="">
+ <span class="dropdown-text">Projects</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="/photography/index.html" rel="" target="">
- <span class="menu-text">Photography</span></a>
+        <li>
+    <a class="dropdown-item" href="/photography/index.html" rel="" target="">
+ <span class="dropdown-text">Photography</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="/cv/index.html" rel="" target="">
- <span class="menu-text">CV</span></a>
+        <li>
+    <a class="dropdown-item" href="/cv/index.html" rel="" target="">
+ <span class="dropdown-text">CV</span></a>
   </li>  
+    </ul>
+  </li>
   <li class="nav-item compact">
     <a class="nav-link" href="mailto:alexandrodisla@hotmail.com" rel="" target=""><i class="bi bi-envelope" role="img" aria-label="email">
 </i> 
