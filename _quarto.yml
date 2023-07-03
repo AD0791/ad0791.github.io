@@ -3,9 +3,12 @@ website:
   description: "Statistics | Data Analyst | Backend Engineering"
   image: img/ad0791_profile.jpeg
   favicon: img/favicon.png
-
+  back-to-top-navigation: true
   navbar:
-    pinned: true
+    title: false
+    background: "#355C7D"
+    reader-mode: true
+    pinned: false
     logo: /img/logo.png
     right:
       - icon: folder-symlink
@@ -29,7 +32,6 @@ website:
       - icon: person-vcard
         aria-label: Upwork
         href: https://www.upwork.com/freelancers/~014d169b1fa2529359?viewMode=1
-
   search:
     location: navbar
     type: textbox
@@ -40,7 +42,6 @@ website:
 project:
   type: website
   output-dir: docs
-
   preview:
     port: 8013
     browser: true
@@ -54,10 +55,8 @@ format:
   html:
     fontsize: 1.1em
     theme:
-      - pulse
-      - flatly
-      - darkly
-      - html/styles.scss
+      light: flatly
+      dark: darkly
     toc: false
     code-link: true
     anchor-sections: true
