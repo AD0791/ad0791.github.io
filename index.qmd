@@ -19,6 +19,16 @@ about:
 ---
 
 ::: {#about-block}
+<div class="card" style="width: 18rem;">
+  <div class="card-header text-center  fw-bolder bg-success bg-gradient" >
+    The ingredients
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item bg-light bg-gradient">Data Analysis & Visualization</li>
+    <li class="list-group-item bg-light bg-gradient">Backend Services</li>
+    <li class="list-group-item bg-light bg-gradient">Scraping & Automation</li>
+  </ul>
+</div>
 :::
 
 # Welcome to my website!

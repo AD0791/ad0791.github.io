@@ -35,6 +35,7 @@ website:
   search:
     location: navbar
     type: textbox
+    copy-button: true
   page-footer:
     right: |
       <span class="faux-block">&#169; 2023 Alexandro Disla</span>
