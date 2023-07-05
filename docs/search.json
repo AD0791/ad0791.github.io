@@ -11,7 +11,7 @@
     "href": "photography/index.html",
     "title": "Photography",
     "section": "",
-    "text": "As a wizard and scholar of Middle-earth, I have been studying the magic of the natural world for centuries. Through my self-portraits, I aim to capture the essence of my own being and reflect on my own journey through time. Each photograph is a reflection of my own experiences and emotions. Through my photography, I hope to offer a glimpse into my life as a scholar and adventurer, and inspire others to reflect on their own journeys through the world.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nView the tutorial for this template (+ download link)\n\n\n\n\n Back to top"
+    "text": "As a wizard and scholar of Middle-earth, I have been studying the magic of the natural world for centuries. Through my self-portraits, I aim to capture the essence of my own being and reflect on my own journey through time. Each photograph is a reflection of my own experiences and emotions. Through my photography, I hope to offer a glimpse into my life as a scholar and adventurer, and inspire others to reflect on their own journeys through the world.\n\n\n\n\n\n\n\n\n\n\n\nView the tutorial for this template (+ download link)\n\n\n\n\n Back to top"
   },
   {
     "objectID": "projects/index.html",
@@ -40,5 +40,40 @@
     "title": "Welcome to my website!",
     "section": "",
     "text": "The ingredients\n\n\n\nData Analysis & Visualization\n\n\nBackend Services\n\n\nScraping & Automation\n\n\n\n \n  \n   \n  \n    \n     Github\n  \n  \n    \n     LinkedIn\n  \n  \n    \n     Email\n  \n  \n    \n     Upwork\n  \n\n\n\n\nWelcome to my website!\nI am a disciplined, detail-oriented person with good communication skills and appropriate training and work experience. My goal is to be highly efficient and deliver products that meet customer needs and requests.\nI have 7 years of experience in R * Python as a data analyst (dashboard, visualization, data manipulation and geoanalysis). I’ve worked with MySQL, PostgreSQL and Mongo databases. I’ve implemented REST services to serve a dashboard with the fastapi framework. In addition, I have experience with express and flask. I have some experience with web sockets and graphql. In addition, I have strong Wordpress development skills.\nBelow is a detailed list of my skills.\n\nQuarto and Rmarkdown (an open-source scientific and technical publishing system)\nMicrosoft Excel, Jupyter Notebook, Polars & Pandas, Seaborn & GGplot\nGeopandas, folium and leaflet\nShiny and streamlit\nWordPress (website design and development)\nSQL (programming, administration)\nJS (nodejs)\nHTML5, CSS, CSS3\nbackend development (fastapi, express, flask,Restapi, graphql, web socket)\n\nI’d like to make it clear that for me, development is much more than a way to earn money. It’s also my passion. So I’ll do my best in every detail of every order, because the customer’s ultimate satisfaction is my priority.\nPlease don’t hesitate to contact me and I’ll be delighted to work with you.\nThank you in advance for choosing me.\nYours sincerely\nAlexandro Disla\nPlease feel free to contact me if you have any questions or would like to discuss potential projects.\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "old_version/photography/index.html",
+    "href": "old_version/photography/index.html",
+    "title": "Photography",
+    "section": "",
+    "text": "As a wizard and scholar of Middle-earth, I have been studying the magic of the natural world for centuries. Through my self-portraits, I aim to capture the essence of my own being and reflect on my own journey through time. Each photograph is a reflection of my own experiences and emotions. Through my photography, I hope to offer a glimpse into my life as a scholar and adventurer, and inspire others to reflect on their own journeys through the world.\n\n\n\n\n\n\n\n\n\n\n\nView the tutorial for this template (+ download link)\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
+    "title": "The blog",
+    "section": "",
+    "text": "#TODO: add the listing features\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "old_version/projects/index.html",
+    "href": "old_version/projects/index.html",
+    "title": "Projects",
+    "section": "",
+    "text": "arXiv Preprint | Code\nOver the centuries, I have devoted countless hours to deciphering and translating the ancient scripts and dialects of the various peoples of Middle-earth. My goal is to gain a deeper understanding of the cultures and histories of these peoples by studying their languages. Currently, I am working on a monograph that explores the linguistic roots of the Elvish languages. Through extensive research and analysis, I hope to shed light on the connections between the different dialects of Elvish and their origins. This project has been particularly challenging, as Elvish is a complex and nuanced language, but I am determined to see it through to completion."
+  },
+  {
+    "objectID": "old_version/projects/index.html#the-languages-of-middle-earth",
+    "href": "old_version/projects/index.html#the-languages-of-middle-earth",
+    "title": "Projects",
+    "section": "",
+    "text": "arXiv Preprint | Code\nOver the centuries, I have devoted countless hours to deciphering and translating the ancient scripts and dialects of the various peoples of Middle-earth. My goal is to gain a deeper understanding of the cultures and histories of these peoples by studying their languages. Currently, I am working on a monograph that explores the linguistic roots of the Elvish languages. Through extensive research and analysis, I hope to shed light on the connections between the different dialects of Elvish and their origins. This project has been particularly challenging, as Elvish is a complex and nuanced language, but I am determined to see it through to completion."
+  },
+  {
+    "objectID": "old_version/projects/index.html#the-history-of-the-war-of-the-ring",
+    "href": "old_version/projects/index.html#the-history-of-the-war-of-the-ring",
+    "title": "Projects",
+    "section": "The History of the War of the Ring",
+    "text": "The History of the War of the Ring\n\narXiv Preprint | Code\nI am creating a comprehensive and detailed history of the conflict that goes beyond the surface-level events. By gathering information from a variety of sources, including my own memories, written accounts, and oral histories, I hope to shed new light on this important period in Middle-earth’s history and provide valuable insights into the motivations and actions of the various players involved.\n\nView the tutorial for this template (+ download link)"
   }
 ]

@@ -13,13 +13,10 @@ website:
     right:
       - icon: folder-symlink
         text: "My Projects"
-        menu:
-          - text: "Projects"
-            href: projects/index.qmd
-          - text: "Photography"
-            href: photography/index.qmd
-          - text: "CV"
-            href: cv/index.qmd
+        href: blog/index.qmd
+      - icon: file-person
+        text: "CV"
+        href: cv/index.qmd
       - icon: envelope
         aria-label: email
         href: "mailto:alexandrodisla@hotmail.com"
