@@ -28,6 +28,20 @@
     "text": "The History of the War of the Ring\n\narXiv Preprint | Code\nI am creating a comprehensive and detailed history of the conflict that goes beyond the surface-level events. By gathering information from a variety of sources, including my own memories, written accounts, and oral histories, I hope to shed new light on this important period in Middle-earth’s history and provide valuable insights into the motivations and actions of the various players involved.\n\nView the tutorial for this template (+ download link)"
   },
   {
+    "objectID": "blog/posts/geoanalysis.html",
+    "href": "blog/posts/geoanalysis.html",
+    "title": "geoanalysis with python and R",
+    "section": "",
+    "text": "#TODO get the article up and running\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "blog/posts/eda_rs.html",
+    "href": "blog/posts/eda_rs.html",
+    "title": "Exploratory Data Analysis with Polars (plotly express for the visualization)",
+    "section": "",
+    "text": "#TODO get the article up and running\n\n\n\n Back to top"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Welcome to my website!",
@@ -35,11 +49,25 @@
     "text": "The ingredients\n\n\n\nData Analysis & Visualization\n\n\nBackend Services\n\n\nScraping & Automation\n\n\n\n \n  \n   \n  \n    \n     Github\n  \n  \n    \n     LinkedIn\n  \n  \n    \n     Email\n  \n  \n    \n     Upwork\n  \n\n\n\n\nWelcome to my website!\nI am a disciplined, detail-oriented person with good communication skills and appropriate training and work experience. My goal is to be highly efficient and deliver products that meet customer needs and requests.\nI have 7 years of experience in R * Python as a data analyst (dashboard, visualization, data manipulation and geoanalysis). I’ve worked with MySQL, PostgreSQL and Mongo databases. I’ve implemented REST services to serve a dashboard with the fastapi framework. In addition, I have experience with express and flask. I have some experience with web sockets and graphql. In addition, I have strong Wordpress development skills.\nBelow is a detailed list of my skills.\n\nQuarto and Rmarkdown (an open-source scientific and technical publishing system)\nMicrosoft Excel, Jupyter Notebook, Polars & Pandas, Seaborn & GGplot\nGeopandas, folium and leaflet\nShiny and streamlit\nWordPress (website design and development)\nSQL (programming, administration)\nJS (nodejs)\nHTML5, CSS, CSS3\nbackend development (fastapi, express, flask,Restapi, graphql, web socket)\n\nI’d like to make it clear that for me, development is much more than a way to earn money. It’s also my passion. So I’ll do my best in every detail of every order, because the customer’s ultimate satisfaction is my priority.\nPlease don’t hesitate to contact me and I’ll be delighted to work with you.\nThank you in advance for choosing me.\nYours sincerely\nAlexandro Disla\nPlease feel free to contact me if you have any questions or would like to discuss potential projects.\n\n\n\n\n\n Back to top"
   },
   {
+    "objectID": "blog/posts/eda.html",
+    "href": "blog/posts/eda.html",
+    "title": "Exploratory Data Analysis with Pandas (plotly express for the visualization)",
+    "section": "",
+    "text": "#TODO get the article up and running\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "blog/posts/web_scraping.html",
+    "href": "blog/posts/web_scraping.html",
+    "title": "Web scraping with python",
+    "section": "",
+    "text": "#TODO get the article up and running\n\n\n\n Back to top"
+  },
+  {
     "objectID": "blog/index.html",
     "href": "blog/index.html",
-    "title": "The blog",
+    "title": "Learn with me",
     "section": "",
-    "text": "#TODO: add the listing features\n\n\n\n Back to top"
+    "text": "Exploratory Data Analysis with Pandas (plotly express for the visualization)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExploratory Data Analysis with Polars (plotly express for the visualization)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngeoanalysis with python and R\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeb scraping with python\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   },
   {
     "objectID": "old_version/photography/index.html",

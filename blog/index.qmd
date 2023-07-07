@@ -1,5 +1,15 @@
 ---
-title: "The blog"
+title: "Learn with me"
+listing:
+  contents: 
+    - "posts/eda.qmd"
+    - "posts/eda_rs.qmd"
+    - "posts/geoanalysis.qmd"
+    - "posts/web_scraping.qmd"
+  type: grid
+  sort: 
+    - "date"
+  max-items: 100
+  image-placeholder: ../img/coming_soon.jpeg
 ---
 
-#TODO: add the listing features

@@ -1,0 +1,5 @@
+---
+title: Exploratory Data Analysis with Polars (plotly express for the visualization)
+---
+
+#TODO get the article up and running
