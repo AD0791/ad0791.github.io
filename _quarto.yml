@@ -1,6 +1,7 @@
 website:
   title: "Alexandro Disla"
   description: "Statistics | Data Analyst | Backend Engineering"
+  site-url: "https://ad0791.github.io/"
   image: img/ad0791_profile.jpeg
   favicon: img/favicon.png
   back-to-top-navigation: true

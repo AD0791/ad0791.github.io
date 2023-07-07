@@ -11,5 +11,7 @@ listing:
     - "date"
   max-items: 100
   image-placeholder: ../img/coming_soon.jpeg
+  categories: true
+  feed: true
 ---
 

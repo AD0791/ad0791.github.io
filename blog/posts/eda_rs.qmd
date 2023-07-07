@@ -1,5 +1,8 @@
 ---
 title: Exploratory Data Analysis with Polars (plotly express for the visualization)
+author: "Alexandro Disla"
+author-meta: "Data Analyst & backend dev"
+description: Showcase the ability to use the polars framework to explore the data and how it interacts with pandas framework and the plotly API.
 ---
 
 #TODO get the article up and running
