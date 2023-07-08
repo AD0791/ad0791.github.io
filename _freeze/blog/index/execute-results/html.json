@@ -1,7 +1,7 @@
 {
-  "hash": "009166cbf784c8b621c608e1d9dae696",
+  "hash": "6cf4eda02be6f4d29324c08336eae363",
   "result": {
-    "markdown": "---\ntitle: Learn with me\nlisting:\n  id: main\n  contents: \n    - \"posts/eda.qmd\"\n    - \"posts/eda_rs.qmd\"\n    - \"posts/geoanalysis.qmd\"\n    - \"posts/web_scraping.qmd\"\n  type: grid\n  sort: \n    - \"date\"\n  sort-ui: [title,date]\n  max-items: 100\n  image-placeholder: ../img/coming_soon.jpeg\n  categories: true\n  feed: true\n  filter-ui: [date,title]\n  page-size: 3\nlayout: page\nexecute:\n  freeze: true \nengine: knitr \n---\n\n::: {.cell}\n<style type=\"text/css\">\nh1, h2{\n  font-size: 30px;\n  font-weight: 600;\n  background-image: linear-gradient(to bottom left, #00c2cb, #553c9a);\n  color: transparent;\n  background-clip: text;\n  -webkit-background-clip: text;\n}\n</style>\n:::\n\n```{=html}\n  <h1>This will brings you value:</h1>\n```\n\n\n\n\n:::{#main}\n:::\n\n\n```{=html}\n  <h2>Don't forget to take a good cup of cofee</h2>\n```\n",
+    "markdown": "---\ntitle: Learn with me\nlisting:\n  id: main\n  contents: \n    - \"posts/eda.qmd\"\n    - \"posts/eda_rs.qmd\"\n    - \"posts/geoanalysis.qmd\"\n    - \"posts/web_scraping.qmd\"\n  type: grid\n  sort: \n    - \"date\"\n  sort-ui: [title,date]\n  max-items: 100\n  #image-placeholder: ../img/coming_soon.jpeg\n  categories: true\n  feed: true\n  filter-ui: [date,title]\n  page-size: 3\nlayout: page\nexecute:\n  freeze: true \nengine: knitr \n---\n\n::: {.cell}\n<style type=\"text/css\">\nh1, h2{\n  font-size: 30px;\n  font-weight: 600;\n  background-image: linear-gradient(to bottom left, #00c2cb, #553c9a);\n  color: transparent;\n  background-clip: text;\n  -webkit-background-clip: text;\n}\n</style>\n:::\n\n```{=html}\n  <h1>This will brings you value:</h1>\n```\n\n\n\n\n:::{#main}\n:::\n\n\n```{=html}\n  <h2>Don't forget to take a good cup of cofee</h2>\n```\n",
     "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"

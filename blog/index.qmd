@@ -12,7 +12,7 @@ listing:
     - "date"
   sort-ui: [title,date]
   max-items: 100
-  image-placeholder: ../img/coming_soon.jpeg
+  #image-placeholder: ../img/coming_soon.jpeg
   categories: true
   feed: true
   filter-ui: [date,title]
