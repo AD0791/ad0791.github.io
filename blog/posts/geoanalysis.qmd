@@ -1,5 +1,16 @@
 ---
-title: geoanalysis with python and R
+title: geoanalysis
+subtitle: Build a map for your analysis
+description: We have multiple solutions available with R and Python. Let's explore them.
+author: Alexandro Disla
+author-meta: "Data Analyst & backend dev"
+date: "2023-07-08"
+date-modified: now
+date-meta: time of the last article update
+reading-time: 10
+image: ../../img/maps.jpeg
+image-alt: The logo of geoanalysis
+categories: [Python, R, "GeoAnalysis"]
 ---
 
 #TODO get the article up and running

@@ -30,14 +30,14 @@
   {
     "objectID": "blog/posts/geoanalysis.html",
     "href": "blog/posts/geoanalysis.html",
-    "title": "geoanalysis with python and R",
+    "title": "geoanalysis",
     "section": "",
     "text": "#TODO get the article up and running\n\n\n\n Back to top"
   },
   {
     "objectID": "blog/posts/eda_rs.html",
     "href": "blog/posts/eda_rs.html",
-    "title": "Exploratory Data Analysis with Polars (plotly express for the visualization)",
+    "title": "The powers of the polars framework",
     "section": "",
     "text": "#TODO get the article up and running\n\n\n\n Back to top"
   },
@@ -51,14 +51,14 @@
   {
     "objectID": "blog/posts/eda.html",
     "href": "blog/posts/eda.html",
-    "title": "Exploratory Data Analysis with Pandas (plotly express for the visualization)",
+    "title": "The powers of the pandas framework",
     "section": "",
     "text": "#TODO get the article up and running\n\n\n\n Back to top"
   },
   {
     "objectID": "blog/posts/web_scraping.html",
     "href": "blog/posts/web_scraping.html",
-    "title": "Web scraping with python",
+    "title": "Web Scraping",
     "section": "",
     "text": "#TODO get the article up and running\n\n\n\n Back to top"
   },
@@ -67,7 +67,7 @@
     "href": "blog/index.html",
     "title": "Learn with me",
     "section": "",
-    "text": "Exploratory Data Analysis with Pandas (plotly express for the visualization)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExploratory Data Analysis with Polars (plotly express for the visualization)\n\n\nShowcase the ability to use the polars framework to explore the data and how it interacts with pandas framework and the plotly API.\n\n\n\nAlexandro Disla\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngeoanalysis with python and R\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeb scraping with python\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "text": "This will brings you value:\n\n\n   \n     \n     Order By\nDefault\n\n          Title\n        \n\n          Date - Oldest\n        \n\n          Date - Newest\n        \n\n    \n      \n      \n\n\n\n\n\n\n\n\n\n\nThe powers of the pandas framework\n\n\n\nPython\n\n\nPandas\n\n\nEDA\n\n\n\nStandard framework for data wrangling and analysis\n\n\n\nAlexandro Disla\n\n\nJul 8, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe powers of the polars framework\n\n\n\nPython\n\n\nPolars\n\n\nEDA\n\n\n\nRobust framework for data wrangling compatible with pandas and any data visualization libraries\n\n\n\nAlexandro Disla\n\n\nJul 8, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\ngeoanalysis\n\n\n\nPython\n\n\nR\n\n\nGeoAnalysis\n\n\n\nWe have multiple solutions available with R and Python. Let’s explore them.\n\n\n\nAlexandro Disla\n\n\nJul 8, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeb Scraping\n\n\n\nPython\n\n\nWeb scraping\n\n\n\nPython offers us multiple battle tested solutions to tackle this problem properly.\n\n\n\nAlexandro Disla\n\n\nJul 8, 2023\n\n\n\n\n\n\n\n\nNo matching items\n\n\n\n  Don't forget to take a good cup of cofee\n\n\n\n\n Back to top"
   },
   {
     "objectID": "old_version/photography/index.html",

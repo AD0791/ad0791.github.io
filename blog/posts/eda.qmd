@@ -1,5 +1,16 @@
 ---
-title: Exploratory Data Analysis with Pandas (plotly express for the visualization)
+title: The powers of the pandas framework
+subtitle: Exploratory data analysis
+description: Standard framework for data wrangling and analysis
+author: Alexandro Disla
+author-meta: "Data Analyst & backend dev"
+date: "2023-07-08"
+date-modified: now
+date-meta: time of the last article update
+reading-time: 10
+image: ../../img/pandas.png
+image-alt: The logo of pandas
+categories: [Python, Pandas, "EDA"]
 ---
 
 #TODO get the article up and running

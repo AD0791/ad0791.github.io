@@ -1,6 +1,7 @@
 ---
-title: "Learn with me"
+title: Learn with me
 listing:
+  id: main
   contents: 
     - "posts/eda.qmd"
     - "posts/eda_rs.qmd"
@@ -9,9 +10,41 @@ listing:
   type: grid
   sort: 
     - "date"
+  sort-ui: [title,date]
   max-items: 100
   image-placeholder: ../img/coming_soon.jpeg
   categories: true
   feed: true
+  filter-ui: [date,title]
+  page-size: 3
+layout: page
+execute:
+  freeze: true 
+engine: knitr 
 ---
 
+
+
+```{css echo=FALSE}
+h1, h2{
+  font-size: 30px;
+  font-weight: 600;
+  background-image: linear-gradient(to bottom left, #00c2cb, #553c9a);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+```
+
+```{=html}
+  <h1>This will brings you value:</h1>
+```
+
+
+
+:::{#main}
+:::
+
+```{=html}
+  <h2>Don't forget to take a good cup of cofee</h2>
+```
