@@ -12,7 +12,7 @@ image: ../../img/web_scraping.jpeg
 image-alt: The logo of web scraping
 categories: [Python, "Web scraping"]
 toc: true
-toc-depth: 4
+toc-depth: 2
 toc-expand: true
 ---
 
