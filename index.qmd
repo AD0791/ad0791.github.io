@@ -35,21 +35,21 @@ about:
 
 I am a disciplined, detail-oriented person with good communication skills and appropriate training and work experience. My goal is to be highly efficient and deliver products that meet customer needs and requests.
 
-I have 7 years of experience in R * Python as a data analyst (dashboard, visualization, data manipulation and geoanalysis). I've worked with MySQL, PostgreSQL and Mongo databases. I've implemented REST services to serve a dashboard with the fastapi framework. In addition, I have experience with express and flask. I have some experience with web sockets and graphql. In addition, I have strong Wordpress development skills.
+I have Graduated from a school of applied economics and statistics. I have multiples of experiences in the fields of data analysis, modeling and backend engineering. In my daily job, I do exploratory data analysis to ensure the data quality of the multiple sources of data within the organization.I submit the bad data to be corrected by the data entry team or the IT team. I build automation reports that met the specified requirements. These reports are a combination of sql (or mongo queries), sqlalchemy, pymongo, pandas (or polars) and  tidyverse  (if needed). The goal is to present the results in the required format (word, excell, powerpoint, visualization) or the required context (a python/R dashboard, a web services). I dabbled with wordpress to serve the needs of my clients. 
 
 Below is a detailed list of my skills.
 
 - Quarto and Rmarkdown (an open-source scientific and technical publishing system)
 - Microsoft Excel, Jupyter Notebook, Polars & Pandas, Seaborn & GGplot
-- Geopandas, folium and leaflet
-- Shiny and streamlit
+- Geopandas, folium and leaflet for GeoAnalysis
+- Web scraping with scrapy and beautifulSoup
+- Web automation with Selenium
+- Shiny, streamlit, dash for all in one dashboard solutions
 - WordPress (website design and development)
-- SQL (programming, administration)
-- JS (nodejs)
-- HTML5, CSS, CSS3
+- SQL scripts
 - backend development (fastapi, express, flask,Restapi, graphql, web socket)
 
-I'd like to make it clear that for me, development is much more than a way to earn money. It's also my passion. So I'll do my best in every detail of every order, because the customer's ultimate satisfaction is my priority.
+I'd like to make it clear that for me, it's a priviledge to be here to tackle and solve your problems. It is much more than a way to earn money. It's also my passion. So I'll do my best in every detail of every order, because the customer's ultimate satisfaction is my priority.
 
 Please don't hesitate to contact me and I'll be delighted to work with you.
 
@@ -58,7 +58,6 @@ Thank you in advance for choosing me.
 Yours sincerely
 
 Alexandro Disla
-
 
 
 Please feel free to [contact me](mailto:alexandrodisla@hotmail.com) if you have any questions or would like to discuss potential projects.
