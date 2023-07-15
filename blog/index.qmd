@@ -10,7 +10,7 @@ listing:
   type: grid
   sort: 
     - "date"
-  sort-ui: [title,date]
+  sort-ui: [title,date, date modified]
   max-items: 100
   #image-placeholder: ../img/coming_soon.jpeg
   categories: true

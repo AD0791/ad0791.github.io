@@ -69,7 +69,7 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -128,7 +128,25 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#web-scraping" id="toc-web-scraping" class="nav-link active" data-scroll-target="#web-scraping">Web scraping</a>
+  <ul>
+  <li><a href="#the-need-for-web-scraping" id="toc-the-need-for-web-scraping" class="nav-link" data-scroll-target="#the-need-for-web-scraping">The need for Web scraping</a></li>
+  <li><a href="#available-options-and-alternatives" id="toc-available-options-and-alternatives" class="nav-link" data-scroll-target="#available-options-and-alternatives">Available Options and Alternatives</a>
+  <ul class="collapse">
+  <li><a href="#quick-comparison-of-the-solutions" id="toc-quick-comparison-of-the-solutions" class="nav-link" data-scroll-target="#quick-comparison-of-the-solutions">Quick comparison of the solutions</a></li>
+  <li><a href="#an-alternative-to-web-scraping-apis" id="toc-an-alternative-to-web-scraping-apis" class="nav-link" data-scroll-target="#an-alternative-to-web-scraping-apis">An Alternative to Web Scraping: APIs</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#beautiful-soup" id="toc-beautiful-soup" class="nav-link" data-scroll-target="#beautiful-soup">Beautiful Soup</a></li>
+  <li><a href="#scrapy" id="toc-scrapy" class="nav-link" data-scroll-target="#scrapy">Scrapy</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -161,7 +179,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 8, 2023</p>
+      <p class="date">July 15, 2023</p>
     </div>
   </div>
   
@@ -177,9 +195,52 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>#TODO get the article up and running</p>
+<section id="web-scraping" class="level1">
+<h1>Web scraping</h1>
+<p>Web scraping is the process of gathering information from the Internet. Even copying and pasting the lyrics of your favorite song is a form of web scraping! However, the words “web scraping” usually refer to a process that involves automation. Some websites don’t like it when automatic scrapers gather their data, while others don’t mind.</p>
+<p>If you’re scraping a page respectfully for educational purposes, then you’re unlikely to have any problems. Still, it’s a good idea to do some research on your own and make sure that you’re not violating any Terms of Service before you start a large-scale project.</p>
+<section id="the-need-for-web-scraping" class="level2">
+<h2 class="anchored" data-anchor-id="the-need-for-web-scraping">The need for Web scraping</h2>
+<p>Say you’re a surfer, both online and in real life, and you’re looking for employment. However, you’re not looking for just any job. With a surfer’s mindset, you’re waiting for the perfect opportunity to roll your way!</p>
+<p>There’s a job site that offers precisely the kinds of jobs you want. Unfortunately, a new position only pops up once in a blue moon, and the site doesn’t provide an email notification service. You think about checking up on it every day, but that doesn’t sound like the most fun and productive way to spend your time.</p>
+<p>Thankfully, the world offers other ways to apply that surfer’s mindset! Instead of looking at the job site every day, you can use Python to help automate your job search’s repetitive parts. Automated web scraping can be a solution to speed up the data collection process. You write your code once, and it will get the information you want many times and from many pages.</p>
+<p>In contrast, when you try to get the information you want manually, you might spend a lot of time clicking, scrolling, and searching, especially if you need large amounts of data from websites that are regularly updated with new content. Manual web scraping can take a lot of time and repetition.</p>
+<p>There’s so much information on the Web, and new information is constantly added. You’ll probably be interested in at least some of that data, and much of it is just out there for the taking. Whether you’re actually on the job hunt or you want to download all the lyrics of your favorite artist, automated web scraping can help you accomplish your goals.</p>
+</section>
+<section id="available-options-and-alternatives" class="level2">
+<h2 class="anchored" data-anchor-id="available-options-and-alternatives">Available Options and Alternatives</h2>
+<p>7 Best Python Libraries For Web Scraping</p>
+<section id="quick-comparison-of-the-solutions" class="level3">
+<h3 class="anchored" data-anchor-id="quick-comparison-of-the-solutions">Quick comparison of the solutions</h3>
+<p>BeautifulSoup Features of BeautifulSoup Pros of BeautifulSoup Cons of BeautifulSoup Scrapy Features of Scrapy Pros of Scrapy Cons of Scrapy Selenium Features of Selenium Pros of Selenium Cons of Selenium Requests Features of Requests Pros of Requests Cons of Requests Urllib3 Features of urllib3 Pros of urllib3 Cons of urllib3 Lxml Features of LXML Pros of LXML Cons of LXML MechanicalSoup Features of MechanicalSoup Pros of MechanicalSoup Cons of MechanicalSoup</p>
+</section>
+<section id="an-alternative-to-web-scraping-apis" class="level3">
+<h3 class="anchored" data-anchor-id="an-alternative-to-web-scraping-apis">An Alternative to Web Scraping: APIs</h3>
+<p>Some website providers offer application programming interfaces (APIs) that allow you to access their data in a predefined manner. With APIs, you can avoid parsing HTML. Instead, you can access the data directly using formats like JSON and XML. HTML is primarily a way to present content to users visually.</p>
+<p>When you use an API, the process is generally more stable than gathering the data through web scraping. That’s because developers create APIs to be consumed by programs rather than by human eyes.</p>
+<p>The front-end presentation of a site might change often, but such a change in the website’s design doesn’t affect its API structure. The structure of an API is usually more permanent, which means it’s a more reliable source of the site’s data.</p>
+<p>However, APIs can change as well. The challenges of both variety and durability apply to APIs just as they do to websites. Additionally, it’s much harder to inspect the structure of an API by yourself if the provided documentation lacks quality.</p>
+<p>The approach and tools you need to gather information using APIs are outside the scope of this tutorial. To learn more about it, check out API Integration in Python.</p>
+<blockquote class="blockquote">
+<p>Now let’s run a project with Beautiful Soup and scrapy</p>
+</blockquote>
+</section>
+</section>
+</section>
+<section id="beautiful-soup" class="level1">
+<h1>Beautiful Soup</h1>
+<p>Beautiful Soup is a Python library for pulling data out of HTML and XML files. It works with your favorite parser to provide idiomatic ways of navigating, searching, and modifying the parse tree. It commonly saves programmers hours or days of work.</p>
+<p>These instructions illustrate all major features of Beautiful Soup 4, with examples. I show you what the library is good for, how it works, how to use it, how to make it do what you want, and what to do when it violates your expectations.</p>
+<p>This document covers Beautiful Soup version 4.12.1. The examples in this documentation were written for Python 3.8.</p>
+<p>You might be looking for the documentation for Beautiful Soup 3. If so, you should know that Beautiful Soup 3 is no longer being developed and that all support for it was dropped on December 31, 2020. If you want to learn about the differences between Beautiful Soup 3 and Beautiful Soup 4, see Porting code to BS4.</p>
+</section>
+<section id="scrapy" class="level1">
+<h1>Scrapy</h1>
+<p>Scrapy is an application framework for crawling web sites and extracting structured data which can be used for a wide range of useful applications, like data mining, information processing or historical archival.</p>
+<p>Even though Scrapy was originally designed for web scraping, it can also be used to extract data using APIs (such as Amazon Associates Web Services) or as a general purpose web crawler.</p>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
