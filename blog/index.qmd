@@ -9,8 +9,8 @@ listing:
     - "posts/web_scraping.qmd"
   type: grid
   sort: 
-    - "date"
-  sort-ui: [title,date, date modified]
+    - "date desc"
+  sort-ui: [date modified, date, title]
   max-items: 100
   #image-placeholder: ../img/coming_soon.jpeg
   categories: true

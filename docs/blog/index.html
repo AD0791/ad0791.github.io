@@ -178,14 +178,14 @@ h1, h2{
      <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
      <select id="listing-main-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-main'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})"><option value="" disabled="" selected="" hidden="">Order By</option>
 <option value="index" data-direction="asc">Default</option>
-<option value="listing-title" data-direction="asc">
-          Title
-        </option>
 <option value="listing-date-sort" data-direction="asc">
           Date - Oldest
         </option>
 <option value="listing-date-sort" data-direction="desc">
           Date - Newest
+        </option>
+<option value="listing-title" data-direction="asc">
+          Title
         </option></select>
 </div>
     <div class="input-group input-group-sm quarto-listing-filter">
@@ -194,7 +194,39 @@ h1, h2{
 </div>
 </div>
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="Python,Pandas,EDA" data-listing-date-sort="1688788800000" data-listing-file-modified-sort="1688833151401" data-listing-date-modified-sort="1689453108000" data-listing-reading-time-sort="1">
+<div class="g-col-1" data-index="0" data-categories="Python,Web scraping" data-listing-date-sort="1689393600000" data-listing-file-modified-sort="1689527411666" data-listing-date-modified-sort="1689527693000" data-listing-reading-time-sort="6">
+<a href="../blog/posts/web_scraping.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../img/web_scraping.jpeg" class="thumbnail-image card-img" style="height: 150px;" alt="The logo of web scraping"></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Web Scraping
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Python'); return false;">
+Python
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Web scraping'); return false;">
+Web scraping
+</div>
+</div>
+<div class="card-text listing-description">
+Python offers us multiple battle tested solutions to tackle this problem properly.
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Alexandro Disla
+</div>
+<div class="listing-date">
+Jul 15, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="Python,Pandas,EDA" data-listing-date-sort="1688788800000" data-listing-file-modified-sort="1688833151401" data-listing-date-modified-sort="1689527692000" data-listing-reading-time-sort="1">
 <a href="../blog/posts/eda.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -229,7 +261,7 @@ Jul 8, 2023
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="Python,Polars,EDA" data-listing-date-sort="1688788800000" data-listing-file-modified-sort="1688833960339" data-listing-date-modified-sort="1689453108000" data-listing-reading-time-sort="1">
+<div class="g-col-1" data-index="2" data-categories="Python,Polars,EDA" data-listing-date-sort="1688788800000" data-listing-file-modified-sort="1688833960339" data-listing-date-modified-sort="1689527693000" data-listing-reading-time-sort="1">
 <a href="../blog/posts/eda_rs.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -264,11 +296,11 @@ Jul 8, 2023
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="Python,R,GeoAnalysis" data-listing-date-sort="1688788800000" data-listing-file-modified-sort="1688833949057" data-listing-date-modified-sort="1689453108000" data-listing-reading-time-sort="1">
+<div class="g-col-1" data-index="3" data-categories="Python,R,GeoAnalysis" data-listing-date-sort="1688788800000" data-listing-file-modified-sort="1688833949057" data-listing-date-modified-sort="1689527693000" data-listing-reading-time-sort="1">
 <a href="../blog/posts/geoanalysis.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img src="../img/maps.jpeg" class="thumbnail-image card-img" style="height: 150px;" alt="The logo of geoanalysis"></p>
+<img data-src="../img/maps.jpeg" class="thumbnail-image card-img" style="height: 150px;" alt="The logo of geoanalysis"></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 geoanalysis
@@ -293,38 +325,6 @@ Alexandro Disla
 </div>
 <div class="listing-date">
 Jul 8, 2023
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="3" data-categories="Python,Web scraping" data-listing-date-sort="1689393600000" data-listing-file-modified-sort="1689453050333" data-listing-date-modified-sort="1689453108000" data-listing-reading-time-sort="5">
-<a href="../blog/posts/web_scraping.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img data-src="../img/web_scraping.jpeg" class="thumbnail-image card-img" style="height: 150px;" alt="The logo of web scraping"></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Web Scraping
-</h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Python'); return false;">
-Python
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Web scraping'); return false;">
-Web scraping
-</div>
-</div>
-<div class="card-text listing-description">
-Python offers us multiple battle tested solutions to tackle this problem properly.
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Alexandro Disla
-</div>
-<div class="listing-date">
-Jul 15, 2023
 </div>
 </div>
 </div>

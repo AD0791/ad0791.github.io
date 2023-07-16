@@ -14,6 +14,11 @@ categories: [Python, "Web scraping"]
 toc: true
 toc-depth: 2
 toc-expand: true
+
+format:
+  html:
+    code-fold: true
+jupyter: python3
 ---
 
 # Web scraping
@@ -98,3 +103,58 @@ You might be looking for the documentation for Beautiful Soup 3. If so, you shou
 Scrapy is an application framework for crawling web sites and extracting structured data which can be used for a wide range of useful applications, like data mining, information processing or historical archival.
 
 Even though Scrapy was originally designed for web scraping, it can also be used to extract data using APIs (such as Amazon Associates Web Services) or as a general purpose web crawler.
+
+# testing area
+
+write your code here
+
+## BS4
+
+```{python}
+from requests import get
+from bs4 import BeautifulSoup
+from pandas import DataFrame
+```
+
+The scraping process of fake-jobs website:
+
+```{python}
+URL = "https://realpython.github.io/fake-jobs/"
+page = get(URL)
+
+soup = BeautifulSoup(page.content, "html.parser")
+results = soup.find(id="ResultsContainer")
+job_elements = results.find_all("div", class_="card-content")
+
+def handle_card_info(jobs):
+    data={
+        'title': [],
+        'company': [],
+        'location': []
+    }
+    for job_element in job_elements:
+        title_element = job_element.find("h2", class_="title")
+        company_element = job_element.find("h3", class_="company")
+        location_element = job_element.find("p", class_="location")
+        if title_element:
+            data["title"].append(title_element.text.strip())
+        if company_element:
+            data["company"].append(company_element.text.strip())
+        if company_element:
+            data["location"].append(location_element.text.strip())
+    return data
+    
+```
+
+Make a DataFrame:
+
+
+```{python}
+card_data = handle_card_info(job_elements)
+card_df = DataFrame({
+    'titles': card_data['title'],
+    'companies': card_data['company'],
+    'locations': card_data['location']
+})
+card_df
+```

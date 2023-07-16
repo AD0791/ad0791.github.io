@@ -67,8 +67,258 @@
 <h1>Scrapy</h1>
 <p>Scrapy is an application framework for crawling web sites and extracting structured data which can be used for a wide range of useful applications, like data mining, information processing or historical archival.</p>
 <p>Even though Scrapy was originally designed for web scraping, it can also be used to extract data using APIs (such as Amazon Associates Web Services) or as a general purpose web crawler.</p>
+</section>
+<section id="testing-area" class="level1">
+<h1>testing area</h1>
+<p>write your code here</p>
+<section id="bs4" class="level2">
+<h2 class="anchored" data-anchor-id="bs4">BS4</h2>
+<div class="cell" data-execution_count="1">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> requests <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> get</span>
+<span id="cb1-2"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> bs4 <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> BeautifulSoup</span>
+<span id="cb1-3"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> pandas <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> DataFrame</span></code></pre></div>
+</details>
+</div>
+<p>The scraping process of fake-jobs website:</p>
+<div class="cell" data-execution_count="2">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1">URL <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"https://realpython.github.io/fake-jobs/"</span></span>
+<span id="cb2-2">page <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> get(URL)</span>
+<span id="cb2-3"></span>
+<span id="cb2-4">soup <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> BeautifulSoup(page.content, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"html.parser"</span>)</span>
+<span id="cb2-5">results <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> soup.find(<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">id</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ResultsContainer"</span>)</span>
+<span id="cb2-6">job_elements <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> results.find_all(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"div"</span>, class_<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"card-content"</span>)</span>
+<span id="cb2-7"></span>
+<span id="cb2-8"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">def</span> handle_card_info(jobs):</span>
+<span id="cb2-9">    data<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>{</span>
+<span id="cb2-10">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'title'</span>: [],</span>
+<span id="cb2-11">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'company'</span>: [],</span>
+<span id="cb2-12">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'location'</span>: []</span>
+<span id="cb2-13">    }</span>
+<span id="cb2-14">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> job_element <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> job_elements:</span>
+<span id="cb2-15">        title_element <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> job_element.find(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"h2"</span>, class_<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"title"</span>)</span>
+<span id="cb2-16">        company_element <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> job_element.find(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"h3"</span>, class_<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"company"</span>)</span>
+<span id="cb2-17">        location_element <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> job_element.find(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"p"</span>, class_<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"location"</span>)</span>
+<span id="cb2-18">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span> title_element:</span>
+<span id="cb2-19">            data[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"title"</span>].append(title_element.text.strip())</span>
+<span id="cb2-20">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span> company_element:</span>
+<span id="cb2-21">            data[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"company"</span>].append(company_element.text.strip())</span>
+<span id="cb2-22">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span> company_element:</span>
+<span id="cb2-23">            data[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"location"</span>].append(location_element.text.strip())</span>
+<span id="cb2-24">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> data</span></code></pre></div>
+</details>
+</div>
+<p>Make a DataFrame:</p>
+<div class="cell" data-execution_count="3">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">card_data <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> handle_card_info(job_elements)</span>
+<span id="cb3-2">card_df <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> DataFrame({</span>
+<span id="cb3-3">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'titles'</span>: card_data[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'title'</span>],</span>
+<span id="cb3-4">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'companies'</span>: card_data[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'company'</span>],</span>
+<span id="cb3-5">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'locations'</span>: card_data[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'location'</span>]</span>
+<span id="cb3-6">})</span>
+<span id="cb3-7">card_df</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<div>
 
 
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">titles</th>
+<th data-quarto-table-cell-role="th">companies</th>
+<th data-quarto-table-cell-role="th">locations</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Senior Python Developer</td>
+<td>Payne, Roberts and Davis</td>
+<td>Stewartbury, AA</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Energy engineer</td>
+<td>Vasquez-Davidson</td>
+<td>Christopherville, AA</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Legal executive</td>
+<td>Jackson, Chambers and Levy</td>
+<td>Port Ericaburgh, AA</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Fitness centre manager</td>
+<td>Savage-Bradley</td>
+<td>East Seanview, AP</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Product manager</td>
+<td>Ramirez Inc</td>
+<td>North Jamieview, AP</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">95</td>
+<td>Museum/gallery exhibitions officer</td>
+<td>Nguyen, Yoder and Petty</td>
+<td>Lake Abigail, AE</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">96</td>
+<td>Radiographer, diagnostic</td>
+<td>Holder LLC</td>
+<td>Jacobshire, AP</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">97</td>
+<td>Database administrator</td>
+<td>Yates-Ferguson</td>
+<td>Port Susan, AE</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">98</td>
+<td>Furniture designer</td>
+<td>Ortega-Lawrence</td>
+<td>North Tiffany, AA</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">99</td>
+<td>Ship broker</td>
+<td>Fuentes, Walls and Castro</td>
+<td>Michelleville, AP</td>
+</tr>
+</tbody>
+</table>
+
+<p>100 rows × 3 columns</p>
+</div>
+</div>
+</div>
+
+
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
