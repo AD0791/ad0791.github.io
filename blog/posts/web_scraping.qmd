@@ -112,49 +112,89 @@ write your code here
 
 ```{python}
 from requests import get
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, ResultSet
 from pandas import DataFrame
+from typing import List,Dict, Any
 ```
 
 The scraping process of fake-jobs website:
 
 ```{python}
-URL = "https://realpython.github.io/fake-jobs/"
-page = get(URL)
+url = "https://stackoverflow.com/questions"
+response = get(url)
 
-soup = BeautifulSoup(page.content, "html.parser")
-results = soup.find(id="ResultsContainer")
-job_elements = results.find_all("div", class_="card-content")
+# Check if the request was successful
+if response.status_code != 200:
+    print(f"Failed to retrieve the page. Status code: {response.status_code}")
+    exit()
 
-def handle_card_info(jobs):
+soup = BeautifulSoup(response.content, "html.parser")
+
+
+# Just in case you need the html file
+""" with open("stackoverflow_data.html",'wb') as file:
+    file.write(
+        soup.find('div',id="mainbar").find('div',class_="flush-left").prettify("utf-8")
+    )
+"""
+
+
+questions = soup.select('.s-post-summary.js-post-summary')
+```
+
+
+```{python}
+def questions_handler(questions: ResultSet):
     data={
         'title': [],
-        'company': [],
-        'location': []
+        'user': [],
+        'vote_count': [],
+        'answer_count': [],
+        'view_count': []
     }
-    for job_element in job_elements:
-        title_element = job_element.find("h2", class_="title")
-        company_element = job_element.find("h3", class_="company")
-        location_element = job_element.find("p", class_="location")
-        if title_element:
-            data["title"].append(title_element.text.strip())
-        if company_element:
-            data["company"].append(company_element.text.strip())
-        if company_element:
-            data["location"].append(location_element.text.strip())
+    for question in questions:
+        title = question.select_one('.s-link').getText()
+        user = question.select_one('.s-user-card--link a').getText()
+        vote_count = question.select_one('.s-post-summary--stats-item__emphasized').getText()
+        answer_count = question.select_one('.s-post-summary--stats-item:nth-child(2)').getText()
+        view_count = question.select_one('.s-post-summary--stats-item:nth-child(3)').getText()
+        if title:
+            data["title"].append(title)
+        if user:
+            data["user"].append(user)
+        if vote_count:
+            data["vote_count"].append(vote_count)
+        if answer_count:
+            data["answer_count"].append(answer_count)
+        if view_count:
+            data["view_count"].append(view_count)
     return data
-    
 ```
+
+```{python}
+def build_dataframe(questions_set: ResultSet):
+    data = questions_handler(questions=questions_set)
+    if not data["title"]:
+        return DataFrame({
+            "message": ["The Stackoverflow page has been changed"],
+            "action": ["correct the scraper"]
+        })
+    return DataFrame({
+        "titles": data["title"],
+        "users": data["user"],
+        "vote_counts": data["vote_count"],
+        "answer_counts": data["answer_count"],
+        "view_counts": data["view_count"],
+    })
+    
+
+
+```
+
 
 Make a DataFrame:
 
 
 ```{python}
-card_data = handle_card_info(job_elements)
-card_df = DataFrame({
-    'titles': card_data['title'],
-    'companies': card_data['company'],
-    'locations': card_data['location']
-})
-card_df
+build_dataframe(questions)
 ```
