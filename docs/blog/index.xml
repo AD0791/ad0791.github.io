@@ -85,151 +85,251 @@ font-style: inherit;">import</span> get</span>
 background-color: null;
 font-style: inherit;">from</span> bs4 <span class="im" style="color: #00769E;
 background-color: null;
-font-style: inherit;">import</span> BeautifulSoup</span>
+font-style: inherit;">import</span> BeautifulSoup, ResultSet</span>
 <span id="cb1-3"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">from</span> pandas <span class="im" style="color: #00769E;
 background-color: null;
-font-style: inherit;">import</span> DataFrame</span></code></pre></div>
+font-style: inherit;">import</span> DataFrame</span>
+<span id="cb1-4"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">from</span> typing <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> List,Dict, Any</span></code></pre></div>
 </details>
 </div>
 <p>The scraping process of fake-jobs website:</p>
 <div class="cell" data-execution_count="2">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1">URL <span class="op" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1">url <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"https://realpython.github.io/fake-jobs/"</span></span>
-<span id="cb2-2">page <span class="op" style="color: #5E5E5E;
+font-style: inherit;">"https://stackoverflow.com/questions"</span></span>
+<span id="cb2-2">response <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span> get(URL)</span>
+font-style: inherit;">=</span> get(url)</span>
 <span id="cb2-3"></span>
-<span id="cb2-4">soup <span class="op" style="color: #5E5E5E;
+<span id="cb2-4"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span> BeautifulSoup(page.content, <span class="st" style="color: #20794D;
+font-style: inherit;"># Check if the request was successful</span></span>
+<span id="cb2-5"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span> response.status_code <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">200</span>:</span>
+<span id="cb2-6">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">print</span>(<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"Failed to retrieve the page. Status code: </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>response<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span>status_code<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>)</span>
+<span id="cb2-7">    exit()</span>
+<span id="cb2-8"></span>
+<span id="cb2-9">soup <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> BeautifulSoup(response.content, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"html.parser"</span>)</span>
-<span id="cb2-5">results <span class="op" style="color: #5E5E5E;
+<span id="cb2-10"></span>
+<span id="cb2-11"></span>
+<span id="cb2-12"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span> soup.find(<span class="bu" style="color: null;
+font-style: inherit;"># Just in case you need the html file</span></span>
+<span id="cb2-13"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">id</span><span class="op" style="color: #5E5E5E;
+font-style: inherit;">""" with open("stackoverflow_data.html",'wb') as file:</span></span>
+<span id="cb2-14"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
+font-style: inherit;">    file.write(</span></span>
+<span id="cb2-15"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">"ResultsContainer"</span>)</span>
-<span id="cb2-6">job_elements <span class="op" style="color: #5E5E5E;
+font-style: inherit;">        soup.find('div',id="mainbar").find('div',class_="flush-left").prettify("utf-8")</span></span>
+<span id="cb2-16"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span> results.find_all(<span class="st" style="color: #20794D;
+font-style: inherit;">    )</span></span>
+<span id="cb2-17"><span class="co" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">"div"</span>, class_<span class="op" style="color: #5E5E5E;
+font-style: inherit;">"""</span></span>
+<span id="cb2-18"></span>
+<span id="cb2-19"></span>
+<span id="cb2-20">questions <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
+font-style: inherit;">=</span> soup.select(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"card-content"</span>)</span>
-<span id="cb2-7"></span>
-<span id="cb2-8"><span class="kw" style="color: #003B4F;
+font-style: inherit;">'.s-post-summary.js-post-summary'</span>)</span></code></pre></div>
+</details>
+</div>
+<div class="cell" data-execution_count="3">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="kw" style="color: #003B4F;
 background-color: null;
-font-style: inherit;">def</span> handle_card_info(jobs):</span>
-<span id="cb2-9">    data<span class="op" style="color: #5E5E5E;
+font-style: inherit;">def</span> questions_handler(questions: ResultSet):</span>
+<span id="cb3-2">    data<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>{</span>
-<span id="cb2-10">        <span class="st" style="color: #20794D;
+<span id="cb3-3">        <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'title'</span>: [],</span>
-<span id="cb2-11">        <span class="st" style="color: #20794D;
+<span id="cb3-4">        <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">'company'</span>: [],</span>
-<span id="cb2-12">        <span class="st" style="color: #20794D;
+font-style: inherit;">'user'</span>: [],</span>
+<span id="cb3-5">        <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">'location'</span>: []</span>
-<span id="cb2-13">    }</span>
-<span id="cb2-14">    <span class="cf" style="color: #003B4F;
+font-style: inherit;">'vote_count'</span>: [],</span>
+<span id="cb3-6">        <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">for</span> job_element <span class="kw" style="color: #003B4F;
+font-style: inherit;">'answer_count'</span>: [],</span>
+<span id="cb3-7">        <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">in</span> job_elements:</span>
-<span id="cb2-15">        title_element <span class="op" style="color: #5E5E5E;
+font-style: inherit;">'view_count'</span>: []</span>
+<span id="cb3-8">    }</span>
+<span id="cb3-9">    <span class="cf" style="color: #003B4F;
 background-color: null;
-font-style: inherit;">=</span> job_element.find(<span class="st" style="color: #20794D;
+font-style: inherit;">for</span> question <span class="kw" style="color: #003B4F;
 background-color: null;
-font-style: inherit;">"h2"</span>, class_<span class="op" style="color: #5E5E5E;
+font-style: inherit;">in</span> questions:</span>
+<span id="cb3-10">        title <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
+font-style: inherit;">=</span> question.select_one(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"title"</span>)</span>
-<span id="cb2-16">        company_element <span class="op" style="color: #5E5E5E;
+font-style: inherit;">'.s-link'</span>).getText()</span>
+<span id="cb3-11">        user <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span> job_element.find(<span class="st" style="color: #20794D;
+font-style: inherit;">=</span> question.select_one(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"h3"</span>, class_<span class="op" style="color: #5E5E5E;
+font-style: inherit;">'.s-user-card--link a'</span>).getText()</span>
+<span id="cb3-12">        vote_count <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
+font-style: inherit;">=</span> question.select_one(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"company"</span>)</span>
-<span id="cb2-17">        location_element <span class="op" style="color: #5E5E5E;
+font-style: inherit;">'.s-post-summary--stats-item__emphasized'</span>).getText()</span>
+<span id="cb3-13">        answer_count <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span> job_element.find(<span class="st" style="color: #20794D;
+font-style: inherit;">=</span> question.select_one(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"p"</span>, class_<span class="op" style="color: #5E5E5E;
+font-style: inherit;">'.s-post-summary--stats-item:nth-child(2)'</span>).getText()</span>
+<span id="cb3-14">        view_count <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span><span class="st" style="color: #20794D;
+font-style: inherit;">=</span> question.select_one(<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"location"</span>)</span>
-<span id="cb2-18">        <span class="cf" style="color: #003B4F;
+font-style: inherit;">'.s-post-summary--stats-item:nth-child(3)'</span>).getText()</span>
+<span id="cb3-15">        <span class="cf" style="color: #003B4F;
 background-color: null;
-font-style: inherit;">if</span> title_element:</span>
-<span id="cb2-19">            data[<span class="st" style="color: #20794D;
+font-style: inherit;">if</span> title:</span>
+<span id="cb3-16">            data[<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"title"</span>].append(title_element.text.strip())</span>
-<span id="cb2-20">        <span class="cf" style="color: #003B4F;
+font-style: inherit;">"title"</span>].append(title)</span>
+<span id="cb3-17">        <span class="cf" style="color: #003B4F;
 background-color: null;
-font-style: inherit;">if</span> company_element:</span>
-<span id="cb2-21">            data[<span class="st" style="color: #20794D;
+font-style: inherit;">if</span> user:</span>
+<span id="cb3-18">            data[<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"company"</span>].append(company_element.text.strip())</span>
-<span id="cb2-22">        <span class="cf" style="color: #003B4F;
+font-style: inherit;">"user"</span>].append(user)</span>
+<span id="cb3-19">        <span class="cf" style="color: #003B4F;
 background-color: null;
-font-style: inherit;">if</span> company_element:</span>
-<span id="cb2-23">            data[<span class="st" style="color: #20794D;
+font-style: inherit;">if</span> vote_count:</span>
+<span id="cb3-20">            data[<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"location"</span>].append(location_element.text.strip())</span>
-<span id="cb2-24">    <span class="cf" style="color: #003B4F;
+font-style: inherit;">"vote_count"</span>].append(vote_count)</span>
+<span id="cb3-21">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span> answer_count:</span>
+<span id="cb3-22">            data[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"answer_count"</span>].append(answer_count)</span>
+<span id="cb3-23">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span> view_count:</span>
+<span id="cb3-24">            data[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"view_count"</span>].append(view_count)</span>
+<span id="cb3-25">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">return</span> data</span></code></pre></div>
 </details>
 </div>
-<p>Make a DataFrame:</p>
-<div class="cell" data-execution_count="3">
+<div class="cell" data-execution_count="4">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">card_data <span class="op" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="kw" style="color: #003B4F;
 background-color: null;
-font-style: inherit;">=</span> handle_card_info(job_elements)</span>
-<span id="cb3-2">card_df <span class="op" style="color: #5E5E5E;
+font-style: inherit;">def</span> build_dataframe(questions_set: ResultSet):</span>
+<span id="cb4-2">    data <span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">=</span> DataFrame({</span>
-<span id="cb3-3">    <span class="st" style="color: #20794D;
+font-style: inherit;">=</span> questions_handler(questions<span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">'titles'</span>: card_data[<span class="st" style="color: #20794D;
+font-style: inherit;">=</span>questions_set)</span>
+<span id="cb4-3">    <span class="cf" style="color: #003B4F;
 background-color: null;
-font-style: inherit;">'title'</span>],</span>
-<span id="cb3-4">    <span class="st" style="color: #20794D;
+font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
 background-color: null;
-font-style: inherit;">'companies'</span>: card_data[<span class="st" style="color: #20794D;
+font-style: inherit;">not</span> data[<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">'company'</span>],</span>
-<span id="cb3-5">    <span class="st" style="color: #20794D;
+font-style: inherit;">"title"</span>]:</span>
+<span id="cb4-4">        <span class="cf" style="color: #003B4F;
 background-color: null;
-font-style: inherit;">'locations'</span>: card_data[<span class="st" style="color: #20794D;
+font-style: inherit;">return</span> DataFrame({</span>
+<span id="cb4-5">            <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">'location'</span>]</span>
-<span id="cb3-6">})</span>
-<span id="cb3-7">card_df</span></code></pre></div>
+font-style: inherit;">"message"</span>: [<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"The Stackoverflow page has been changed"</span>],</span>
+<span id="cb4-6">            <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"action"</span>: [<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"correct the scraper"</span>]</span>
+<span id="cb4-7">        })</span>
+<span id="cb4-8">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> DataFrame({</span>
+<span id="cb4-9">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"titles"</span>: data[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"title"</span>],</span>
+<span id="cb4-10">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"users"</span>: data[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"user"</span>],</span>
+<span id="cb4-11">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"vote_counts"</span>: data[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"vote_count"</span>],</span>
+<span id="cb4-12">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"answer_counts"</span>: data[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"answer_count"</span>],</span>
+<span id="cb4-13">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"view_counts"</span>: data[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"view_count"</span>],</span>
+<span id="cb4-14">    })</span></code></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="18">
+</div>
+<p>Make a DataFrame:</p>
+<div class="cell" data-execution_count="5">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1">build_dataframe(questions)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 
 
@@ -238,81 +338,416 @@ font-style: inherit;">'location'</span>]</span>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th">titles</th>
-<th data-quarto-table-cell-role="th">companies</th>
-<th data-quarto-table-cell-role="th">locations</th>
+<th data-quarto-table-cell-role="th">users</th>
+<th data-quarto-table-cell-role="th">vote_counts</th>
+<th data-quarto-table-cell-role="th">answer_counts</th>
+<th data-quarto-table-cell-role="th">view_counts</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
-<td>Senior Python Developer</td>
-<td>Payne, Roberts and Davis</td>
-<td>Stewartbury, AA</td>
+<td>StackExchange HASH conversion to and from C# o...</td>
+<td>user2981411</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n2\nviews\n</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
-<td>Energy engineer</td>
-<td>Vasquez-Davidson</td>
-<td>Christopherville, AA</td>
+<td>Deleting blobs from a sub-folder within a cont...</td>
+<td>Depressio</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n3\nviews\n</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
-<td>Legal executive</td>
-<td>Jackson, Chambers and Levy</td>
-<td>Port Ericaburgh, AA</td>
+<td>Error on local host Chrome with React project,...</td>
+<td>Jaal Audin</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n4\nviews\n</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
-<td>Fitness centre manager</td>
-<td>Savage-Bradley</td>
-<td>East Seanview, AP</td>
+<td>Flutter Video Player streaming videos error on...</td>
+<td>Nooreldin Elsayed</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n3\nviews\n</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
-<td>Product manager</td>
-<td>Ramirez Inc</td>
-<td>North Jamieview, AP</td>
+<td>AppSync VTL: Returning From Request Resolver W...</td>
+<td>JTAN</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n3\nviews\n</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
+<td data-quarto-table-cell-role="th">5</td>
+<td>Kafka C#: Error occured: Subscribed topic not ...</td>
+<td>anon</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n5\nviews\n</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">95</td>
-<td>Museum/gallery exhibitions officer</td>
-<td>Nguyen, Yoder and Petty</td>
-<td>Lake Abigail, AE</td>
+<td data-quarto-table-cell-role="th">6</td>
+<td>How to diff a very long csv with a very long txt</td>
+<td>Félix</td>
+<td>\n-1\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n10\nviews\n</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">96</td>
-<td>Radiographer, diagnostic</td>
-<td>Holder LLC</td>
-<td>Jacobshire, AP</td>
+<td data-quarto-table-cell-role="th">7</td>
+<td>Is ToolReview.org the ultimate guide to assist...</td>
+<td>Mia Lewis</td>
+<td>\n-2\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n7\nviews\n</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">97</td>
-<td>Database administrator</td>
-<td>Yates-Ferguson</td>
-<td>Port Susan, AE</td>
+<td data-quarto-table-cell-role="th">8</td>
+<td>Why does my pygbag pygame application have lag...</td>
+<td>Lleyton Bell</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n4\nviews\n</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">98</td>
-<td>Furniture designer</td>
-<td>Ortega-Lawrence</td>
-<td>North Tiffany, AA</td>
+<td data-quarto-table-cell-role="th">9</td>
+<td>Why is my first asm instruction located at 0x8...</td>
+<td>Synthwave09</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n6\nviews\n</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">99</td>
-<td>Ship broker</td>
-<td>Fuentes, Walls and Castro</td>
-<td>Michelleville, AP</td>
+<td data-quarto-table-cell-role="th">10</td>
+<td>Why does kerberos suddenly stop working with V...</td>
+<td>Charlie Parker</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n4\nviews\n</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>Same Framework for multiple target and differe...</td>
+<td>Ahmed ibrahim</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n3\nviews\n</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>Unable to control full screen menu bar visibil...</td>
+<td>krzychek</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n3\nviews\n</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>How should MqttClient lifecycle be managed?</td>
+<td>Joe Schrag</td>
+<td>\n-1\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n5\nviews\n</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>Auth0 External Provider</td>
+<td>xxxyyy</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n3\nviews\n</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>Passing a function to a react-router action in...</td>
+<td>Neil E</td>
+<td>\n-1\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n6\nviews\n</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>I'm getting an error flag in the script tag of...</td>
+<td>isaiahAndrew</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n5\nviews\n</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>How do I change the sharing settings for a ser...</td>
+<td>Ryan Tanner-Read</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n4\nviews\n</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18</td>
+<td>How to disable new Logcat in Android Studio Gi...</td>
+<td>Doron Yakovlev Golani</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n3\nviews\n</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19</td>
+<td>Streamlining Multiple Open Scripts in RStudio ...</td>
+<td>TarJae</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n7\nviews\n</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">20</td>
+<td>Python Mypy fails on Decorator [duplicate]</td>
+<td>Micah Pearce</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n6\nviews\n</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">21</td>
+<td>Integration Test of a Controller with MockMVC ...</td>
+<td>Gabriel</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n7\nviews\n</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">22</td>
+<td>How do I find the key with the highest value i...</td>
+<td>Red1269 _</td>
+<td>\n-1\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n9\nviews\n</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">23</td>
+<td>Select default tab in nav-tab</td>
+<td>php</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n8\nviews\n</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">24</td>
+<td>How to show images and/or files at same time w...</td>
+<td>Daniel</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n7\nviews\n</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">25</td>
+<td>navigator.pop() instead of closing a alertDial...</td>
+<td>DizzyDagem</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n4\nviews\n</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">26</td>
+<td>Allowing only one object and disabling all ass...</td>
+<td>niil87</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n13\nviews\n</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">27</td>
+<td>Can you inherit the default properties of anot...</td>
+<td>user22009348</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n12\nviews\n</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">28</td>
+<td>Type safety for REST endpoints</td>
+<td>Cilenco</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n4\nviews\n</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">29</td>
+<td>.Net Core Web API project can't connect to SQL...</td>
+<td>Abdi</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n5\nviews\n</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">30</td>
+<td>How to insert a Python script into a website w...</td>
+<td>Maksiks</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n7\nviews\n</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">31</td>
+<td>Beautifulsoup append ignores namespace (xml)</td>
+<td>otto</td>
+<td>\n-1\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n7\nviews\n</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">32</td>
+<td>Accessing a Kusto extract_all(...) result whic...</td>
+<td>redgiant</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n4\nviews\n</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">33</td>
+<td>Dynamically populate masonry view on HTML web ...</td>
+<td>Ldweller</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n5\nviews\n</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">34</td>
+<td>Adding new layer to existing docker image</td>
+<td>JakeUT</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n4\nviews\n</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">35</td>
+<td>Code structure and responsibility in hexagonal...</td>
+<td>Karol</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n9\nviews\n</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">36</td>
+<td>Language for Turing Machine</td>
+<td>Silver Ms</td>
+<td>\n0\nvotes\n</td>
+<td>\n1\nanswer\n</td>
+<td>\n12\nviews\n</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">37</td>
+<td>Mask the account numbers in a file in Unix</td>
+<td>Dito</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n6\nviews\n</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">38</td>
+<td>trailing numbers after converting negative to ...</td>
+<td>neta cohen</td>
+<td>\n1\nvote\n</td>
+<td>\n1\nanswer\n</td>
+<td>\n19\nviews\n</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">39</td>
+<td>NSWorkspace.shared.open(_:) not working as exp...</td>
+<td>user22260523</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n7\nviews\n</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">40</td>
+<td>How to find specific values in a nc file?</td>
+<td>madison powell</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n5\nviews\n</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">41</td>
+<td>Segmentation error in php extension when using...</td>
+<td>Mohsen Davari</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n5\nviews\n</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">42</td>
+<td>Rewriterule to remove .php and .html in .htacc...</td>
+<td>lololomick</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n4\nviews\n</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">43</td>
+<td>Flutter || Check condition inside ListView.bui...</td>
+<td>Phoenix</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n4\nviews\n</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">44</td>
+<td>A problem occurred running the Server launcher...</td>
+<td>CrustyBuns</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n6\nviews\n</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">45</td>
+<td>How to write junit tests for void method which...</td>
+<td>Bodapati Srinu</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n5\nviews\n</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">46</td>
+<td>What is the B2C Custom Policy Syntax to send q...</td>
+<td>Ikeem Wilson</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n4\nviews\n</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">47</td>
+<td>How to leave a PR review as a GitHub app?</td>
+<td>Eric</td>
+<td>\n-1\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n5\nviews\n</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">48</td>
+<td>SVG element onClick event with z index</td>
+<td>Osman Mamun</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n4\nviews\n</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">49</td>
+<td>How to mock the v3 aws-sdk's paginators?</td>
+<td>ghidalgo</td>
+<td>\n0\nvotes\n</td>
+<td>\n0\nanswers\n</td>
+<td>\n7\nviews\n</td>
 </tr>
 </tbody>
 </table>
 
-<p>100 rows × 3 columns</p>
 </div>
 </div>
 </div>
