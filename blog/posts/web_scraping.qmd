@@ -21,88 +21,81 @@ format:
 jupyter: python3
 ---
 
-# Web scraping
+# Web scraping: Extracting Data from Websites
 
-Web scraping is the process of gathering information from the Internet. Even copying and pasting the lyrics of your favorite song is a form of web scraping! However, the words “web scraping” usually refer to a process that involves automation. Some websites don’t like it when automatic scrapers gather their data, while others don’t mind.
+Web scraping refers to techniques for collecting or extracting data from websites. It allows one to programmatically obtain large amounts of data that would be difficult or time-consuming to gather manually. It's very interesting to see how you can leverage your data analytical skills in this process. Let's see how everything will come together.
 
-If you’re scraping a page respectfully for educational purposes, then you’re unlikely to have any problems. Still, it’s a good idea to do some research on your own and make sure that you’re not violating any Terms of Service before you start a large-scale project.
+##  Why Web Scraping is Useful
 
-## The need for Web scraping
+Web scraping has many practical applications and uses. Here are some examples:
 
-Say you’re a surfer, both online and in real life, and you’re looking for employment. However, you’re not looking for just any job. With a surfer’s mindset, you’re waiting for the perfect opportunity to roll your way!
+- Price monitoring - Track prices and price changes for products on e-commerce websites. This can help find deals or monitor trends.
+- Lead generation - Gather contact information like emails and phone numbers from directories or listings. This is useful for sales and marketing.
+- Research - Collect data from websites to perform analyses or conduct studies. Examples include gathering product reviews, compiling real estate listings, or analyzing social media trends.
+- Content aggregation - Build databases or summaries by scraping news sites, blogs, classifieds, and other sources to create curated content sites.
+- SEO monitoring - Check rankings and keyword positions for a site on search engines like Google. Helps optimize search marketing efforts.
 
-There’s a job site that offers precisely the kinds of jobs you want. Unfortunately, a new position only pops up once in a blue moon, and the site doesn’t provide an email notification service. You think about checking up on it every day, but that doesn’t sound like the most fun and productive way to spend your time.
+## How Web Scraping works
+Web scrapers access webpages programmatically and extract the desired information. Here is the general process:
 
-Thankfully, the world offers other ways to apply that surfer’s mindset! Instead of looking at the job site every day, you can use Python to help automate your job search’s repetitive parts. Automated web scraping can be a solution to speed up the data collection process. You write your code once, and it will get the information you want many times and from many pages.
+1. Find the URL of the page to scrape. 
 
-In contrast, when you try to get the information you want manually, you might spend a lot of time clicking, scrolling, and searching, especially if you need large amounts of data from websites that are regularly updated with new content. Manual web scraping can take a lot of time and repetition.
+2. Send an HTTP request to download the page content.
 
-There’s so much information on the Web, and new information is constantly added. You’ll probably be interested in at least some of that data, and much of it is just out there for the taking. Whether you’re actually on the job hunt or you want to download all the lyrics of your favorite artist, automated web scraping can help you accomplish your goals.
+3. Parse through the HTML content to identify relevant data. Common approaches include:
 
-## Available Options and Alternatives
+    - Pattern matching - Search for strings or regex patterns that identify data.
 
-7 Best Python Libraries For Web Scraping
+    - DOM parsing - Traverse the DOM (Document Object Model) tree to locate elements.
 
-### Quick comparison of the solutions
+    - XPath queries - Write expressions to navigate through HTML structure and find data.
 
-BeautifulSoup
-Features of BeautifulSoup
-Pros of BeautifulSoup
-Cons of BeautifulSoup
-Scrapy
-Features of Scrapy
-Pros of Scrapy
-Cons of Scrapy
-Selenium
-Features of Selenium
-Pros of Selenium
-Cons of Selenium
-Requests
-Features of Requests
-Pros of Requests
-Cons of Requests
-Urllib3
-Features of urllib3
-Pros of urllib3
-Cons of urllib3
-Lxml
-Features of LXML
-Pros of LXML
-Cons of LXML
-MechanicalSoup
-Features of MechanicalSoup
-Pros of MechanicalSoup
-Cons of MechanicalSoup
+4. Extract and store the data, often in a database or spreadsheet.
 
-### An Alternative to Web Scraping: APIs
-Some website providers offer application programming interfaces (APIs) that allow you to access their data in a predefined manner. With APIs, you can avoid parsing HTML. Instead, you can access the data directly using formats like JSON and XML. HTML is primarily a way to present content to users visually.
+5. Repeat the process across many pages to gather larger data sets.
 
-When you use an API, the process is generally more stable than gathering the data through web scraping. That’s because developers create APIs to be consumed by programs rather than by human eyes.
+Web scraping can be done through scripting languages like Python, libraries like BeautifulSoup, browser automation tools like Selenium, or fully integrated scraping solutions. 
 
-The front-end presentation of a site might change often, but such a change in the website’s design doesn’t affect its API structure. The structure of an API is usually more permanent, which means it’s a more reliable source of the site’s data.
+### Key Considerations
 
-However, APIs can change as well. The challenges of both variety and durability apply to APIs just as they do to websites. Additionally, it’s much harder to inspect the structure of an API by yourself if the provided documentation lacks quality.
+There are a few key factors to keep in mind when web scraping:
 
-The approach and tools you need to gather information using APIs are outside the scope of this tutorial. To learn more about it, check out API Integration in Python.
+- Avoid overloading websites with too many rapid requests, which can be seen as denial of service attacks. Add delays and throttles.
 
+- Check websites' terms of use and robots.txt files to understand if they allow scraping. Some sites prohibit it.
 
-> Now let's run a project with Beautiful Soup and scrapy
+- Use caches, proxies, and rotation to distribute requests and avoid getting IP addresses blocked.
 
-# Beautiful Soup
+- In some cases, explicitly identifying as a scraper through a user agent string can help avoid blocks. 
 
-Beautiful Soup is a Python library for pulling data out of HTML and XML files. It works with your favorite parser to provide idiomatic ways of navigating, searching, and modifying the parse tree. It commonly saves programmers hours or days of work.
+- Make sure to follow relevant laws and regulations regarding data collection and usage.
 
-These instructions illustrate all major features of Beautiful Soup 4, with examples. I show you what the library is good for, how it works, how to use it, how to make it do what you want, and what to do when it violates your expectations.
+In summary, web scraping is a versatile technique to automate the extraction of data from websites for various purposes. When done properly, it is an extremely useful tool for data collection and analysis.
 
-This document covers Beautiful Soup version 4.12.1. The examples in this documentation were written for Python 3.8.
+## Popular Python Web Scraping Frameworks
 
-You might be looking for the documentation for Beautiful Soup 3. If so, you should know that Beautiful Soup 3 is no longer being developed and that all support for it was dropped on December 31, 2020. If you want to learn about the differences between Beautiful Soup 3 and Beautiful Soup 4, see Porting code to BS4.
+There are many Python libraries and frameworks that make web scraping easier. Some popular options include:
 
-# Scrapy
+- BeautifulSoup - HTML/XML parsing library that helps navigate, search, and extract data from HTML. Excellent for basic scraping tasks.
 
-Scrapy is an application framework for crawling web sites and extracting structured data which can be used for a wide range of useful applications, like data mining, information processing or historical archival.
+- Scrapy - Full framework for large scale web crawling and scraping. Can extract data very quickly and handle large volumes. 
 
-Even though Scrapy was originally designed for web scraping, it can also be used to extract data using APIs (such as Amazon Associates Web Services) or as a general purpose web crawler.
+- Selenium - Automates web browsers to programmatically load pages and extract data. Useful when sites have heavy JavaScript or are harder to scrape.
+
+- Requests - Simplifies making HTTP requests to access web pages. Good foundation for APIs and scraping.
+
+- lxml - Fast and feature-rich library for XML and HTML manipulation. Helps scrape complex sites. 
+
+These libraries can be combined to create powerful scrapers. For example, using Requests and BeautifulSoup together is a common approach. Scrapy and Selenium also integrate with BeautifulSoup.
+
+## Analyzing Stack Overflow Question Data
+
+Stack Overflow is one of the largest online communities for software developers to ask and answer programming questions. The site contains a wealth of data that can be analyzed to uncover interesting insights.
+
+In this article, we will scrape a sample of recent Stack Overflow questions using Python and BeautifulSoup. We will then load the data into a Pandas DataFrame to analyze question statistics like tags, scores, views, etc.
+
+### Scraping Stack Overflow Questions with BS4
+We can use the BeautifulSoup library in Python to parse the HTML of the Stack Overflow homepage and extract the question data.
 
 # testing area
 
@@ -135,9 +128,7 @@ soup = BeautifulSoup(response.content, "html.parser")
 """ with open("stackoverflow_data.html",'wb') as file:
     file.write(
         soup.find('div',id="mainbar").find('div',class_="flush-left").prettify("utf-8")
-    )
-"""
-
+    ) """
 
 questions = soup.select('.s-post-summary.js-post-summary')
 ```
