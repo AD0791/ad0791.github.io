@@ -92,22 +92,18 @@ These libraries can be combined to create powerful scrapers. For example, using 
 
 Stack Overflow is one of the largest online communities for software developers to ask and answer programming questions. The site contains a wealth of data that can be analyzed to uncover interesting insights.
 
-In this article, we will scrape a sample of recent Stack Overflow questions using Python and BeautifulSoup. We will then load the data into a Pandas DataFrame to analyze question statistics like tags, scores, views, etc.
+In this article, we will scrape a sample of recent Stack Overflow questions using Python and BeautifulSoup. We will then load the data into a Pandas DataFrame to analyze question statistics like views, answers, votes, etc.
 
 ### Scraping Stack Overflow Questions with BS4
+
 We can use the BeautifulSoup library in Python to parse the HTML of the Stack Overflow homepage and extract the question data.
-
-# testing area
-
-write your code here
-
-## BS4
 
 ```{python}
 from requests import get
 from bs4 import BeautifulSoup, ResultSet
 from pandas import DataFrame
 from typing import List,Dict, Any
+import plotly.express as px
 ```
 
 The scraping process of fake-jobs website:
@@ -183,9 +179,81 @@ def build_dataframe(questions_set: ResultSet):
 ```
 
 
-Make a DataFrame:
+#### Make a DataFrame:
 
 
 ```{python}
-build_dataframe(questions)
+questions_df = build_dataframe(questions)
+questions_df.head(1)
 ```
+
+#### Work over the columns - EDA
+
+1. remove the newline who is messing with the counts strings
+
+```{python}
+questions_df['vote_counts'] = questions_df['vote_counts'].str.replace('\n', ' ')
+questions_df['answer_counts'] = questions_df['answer_counts'].str.replace('\n', ' ')
+questions_df['view_counts'] = questions_df['view_counts'].str.replace('\n', ' ')
+
+questions_df.head(1)
+```
+
+2. Extract the views, answers and the votes
+
+```{python}
+questions_df['vote_counts'] = questions_df['vote_counts'].str.extract('(\d+)').astype(int)
+questions_df['answer_counts'] = questions_df['answer_counts'].str.extract('(\d+)').astype(int)
+questions_df['view_counts'] = questions_df['view_counts'].str.extract('(\d+)').astype(int)
+questions_df.rename(columns={
+    "vote_counts": "votes",
+    "answer_counts": "answers",
+    "view_counts": "views"
+},
+inplace=True
+)
+questions_df.head(5)
+```
+
+3. We can choose to save it to excel format, produce plots or pivot_tables.
+
+##### Barplots
+
+The views by Users: 
+
+```{python}
+px.bar(questions_df, x="views", y="users", text_auto=True)
+```
+The answers by Users: 
+
+```{python}
+px.bar(questions_df, x="answers", y="users", text_auto=True)
+```
+
+The votes by Users: 
+
+```{python}
+px.bar(questions_df, x="votes", y="users", text_auto=True)
+```
+
+##### Pivot Table
+
+
+```{python}
+questions_df.pivot_table(
+    values=["views","answers","votes"],
+    index = 'users',
+    aggfunc='sum',
+    fill_value=0,
+    margins=True,
+    margins_name="Total"
+)
+```
+
+### Scraping Stack Overflow Questions with scrapy
+
+Scrapy is a popular web scraping framework for Python. It can be used to build scrapers that efficiently crawl websites and extract data.
+
+#### Creating a Scrapy Spider
+
+First, we need to create a Spider class that will crawl the Stack Overflow URL and parse the response: 
