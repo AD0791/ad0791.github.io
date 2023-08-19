@@ -4,7 +4,7 @@ subtitle: Scrape the web to retrieve your data
 description: Python offers us multiple battle tested solutions to tackle this problem properly.
 author: Alexandro Disla
 author-meta: "Data Analyst & backend dev"
-date: "2023-07-15"
+date: "2023-08-19"
 date-modified: now
 date-meta: time of the last article update
 reading-time: 10
@@ -17,7 +17,7 @@ toc-expand: true
 
 format:
   html:
-    code-fold: true
+    code-fold: false
 jupyter: python3
 ---
 
@@ -98,6 +98,8 @@ In this article, we will scrape a sample of recent Stack Overflow questions usin
 
 We can use the BeautifulSoup library in Python to parse the HTML of the Stack Overflow homepage and extract the question data.
 
+1. The first step of course is load the libraries in order to get the required objects.
+
 ```{python}
 from requests import get
 from bs4 import BeautifulSoup, ResultSet
@@ -106,7 +108,7 @@ from typing import List,Dict, Any
 import plotly.express as px
 ```
 
-The scraping process of fake-jobs website:
+2. In the second stage we use the `get` method from `requests` to get the response object. The `BeautifulSoup` class with the specific parser will allow us to parse the content to readable html. The key point is the `select` method that will pick all the tags with the specific css class. And just like that we get all the questions in our variable. Now we must handle the block further to get the data in a friendly python dictionary.
 
 ```{python}
 url = "https://stackoverflow.com/questions"
@@ -117,6 +119,7 @@ if response.status_code != 200:
     print(f"Failed to retrieve the page. Status code: {response.status_code}")
     exit()
 
+# the html.parser allows up to parse the content
 soup = BeautifulSoup(response.content, "html.parser")
 
 
@@ -129,6 +132,7 @@ soup = BeautifulSoup(response.content, "html.parser")
 questions = soup.select('.s-post-summary.js-post-summary')
 ```
 
+3. This handler will allow to turn the questions in to a dictionary. The loop statement will allow us to make the selection of the titles,  votes, answers, users and the views.
 
 ```{python}
 def questions_handler(questions: ResultSet):
@@ -158,6 +162,9 @@ def questions_handler(questions: ResultSet):
     return data
 ```
 
+
+4. Now we bring the` DataFrame` class that wiill allow us to turn the python dict into a basic dataframe. Now we will be able to manipulate the data at will. This will lead to the data cleansing phase. This function is capable of detecting any issue withing the scraping process. The user will see a Dataframe regardless.
+
 ```{python}
 def build_dataframe(questions_set: ResultSet):
     data = questions_handler(questions=questions_set)
@@ -179,7 +186,7 @@ def build_dataframe(questions_set: ResultSet):
 ```
 
 
-#### Make a DataFrame:
+4. We build the dataframe with the handler.
 
 
 ```{python}
@@ -187,9 +194,9 @@ questions_df = build_dataframe(questions)
 questions_df.head(1)
 ```
 
-#### Work over the columns - EDA
+#### EDA
 
-1. remove the newline who is messing with the counts strings
+5. remove the newline who is messing with the counts strings
 
 ```{python}
 questions_df['vote_counts'] = questions_df['vote_counts'].str.replace('\n', ' ')
@@ -199,7 +206,7 @@ questions_df['view_counts'] = questions_df['view_counts'].str.replace('\n', ' ')
 questions_df.head(1)
 ```
 
-2. Extract the views, answers and the votes
+6. Extract the views, answers and the votes
 
 ```{python}
 questions_df['vote_counts'] = questions_df['vote_counts'].str.extract('(\d+)').astype(int)
@@ -215,15 +222,16 @@ inplace=True
 questions_df.head(5)
 ```
 
-3. We can choose to save it to excel format, produce plots or pivot_tables.
+7. We can choose to save it to excel format, produce plots or pivot_tables.
 
-##### Barplots
+#### Barplots
 
 The views by Users: 
 
 ```{python}
 px.bar(questions_df, x="views", y="users", text_auto=True)
 ```
+
 The answers by Users: 
 
 ```{python}
@@ -236,7 +244,7 @@ The votes by Users:
 px.bar(questions_df, x="votes", y="users", text_auto=True)
 ```
 
-##### Pivot Table
+#### Pivot Table
 
 
 ```{python}
@@ -250,10 +258,3 @@ questions_df.pivot_table(
 )
 ```
 
-### Scraping Stack Overflow Questions with scrapy
-
-Scrapy is a popular web scraping framework for Python. It can be used to build scrapers that efficiently crawl websites and extract data.
-
-#### Creating a Scrapy Spider
-
-First, we need to create a Spider class that will crawl the Stack Overflow URL and parse the response: 
