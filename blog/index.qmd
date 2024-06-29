@@ -3,9 +3,9 @@ title: Learn with me
 listing:
   id: main
   contents: 
-    - "posts/eda.qmd"
-    - "posts/eda_rs.qmd"
-    - "posts/geoanalysis.qmd"
+    #- "posts/eda.qmd"
+    #- "posts/eda_rs.qmd"
+    #- "posts/geoanalysis.qmd"
     - "posts/web_scraping.qmd"
   type: grid
   sort: 

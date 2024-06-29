@@ -2,10 +2,7 @@
   {
     "listing": "/blog/index.html",
     "items": [
-      "/blog/posts/web_scraping.html",
-      "/blog/posts/eda.html",
-      "/blog/posts/eda_rs.html",
-      "/blog/posts/geoanalysis.html"
+      "/blog/posts/web_scraping.html"
     ]
   }
 ]
